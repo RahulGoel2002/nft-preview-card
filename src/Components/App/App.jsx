@@ -1,18 +1,24 @@
 import React from 'react';
 import "./App.css"
 import Card from '../Card/Card';
+import content from '../../Content';
 
 const App = () => {
-    const s = [null, null, null, null, null, null]
     return (
         <div className='app'>
-            {
-                s.map(
-                    p => {
-                        return <div className="card-wrapper"><Card /></div>
-                    }
-                )
-            }
+            <div className="title">My Project Portfolio</div>
+            <div className="projects">
+                {
+                    content.map(
+                        c => {
+                            return <div key={c.id} className="card-wrapper">
+                                <Card  content={c} />
+                            </div>
+                        }
+                    )
+                }
+            </div>
+
         </div>
     );
 }
