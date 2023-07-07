@@ -41,7 +41,12 @@
     font-size: 1.5rem;
 }
 
-.card-title:hover, .footer > span:hover {
+.card-title > a {
+    color: #e4e4e4;
+    text-decoration: none;
+}
+
+.card-title > a:hover, .footer > span:hover {
     cursor: pointer;
     color: cyan;
 }
@@ -100,6 +105,7 @@
     font-size: 1.2rem;
 }
 
-.footer > span {
+.footer > a {
     color: #e4e4e4;
+    text-decoration: none;
 }

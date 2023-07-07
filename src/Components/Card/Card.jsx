@@ -1,43 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./Card.css"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-const Card = ({content}) => {
-
-    const handleClick = e => {
-        toast.info('I don\'t do anything yet!', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            })
-    }
-
-    useEffect(
-        () => {
-            console.log(content)
-        }, [content]
-    )
-
-
+const Card = ({ content }) => {
     return (
         <div className='card'>
-            <div className="img" style={{backgroundImage: `url(${content.image})`}}>
-                <div onClick={handleClick} className="overlay"></div>
+            <div className="img" style={{ backgroundImage: `url(${content.image})` }}>
+                <a href={content.link} target="_blank" rel="noopener noreferrer">
+                    <div className="overlay"></div>
+                </a>
             </div>
-            <div onClick={handleClick} className="card-title">{content.title}</div>
+            <div className="card-title"><a href={content.link} target="_blank" rel="noopener noreferrer">{content.title}</a></div>
             <div className="card-desc">{content.desc}</div>
             <div className="line"></div>
             <div className="author">
-                <div className="author-img" style={{backgroundImage: `url(${content.author.image})`}}></div>
-                <div className="footer">Creation of <span onClick={handleClick}>{content.author.name}</span></div>
+                <div className="author-img" style={{ backgroundImage: `url(${content.author.image})` }}></div>
+                <div className="footer">Creation of <a href={content.author.github} target="_blank" rel="noopener noreferrer">{content.author.name}</a></div>
             </div>
-            <ToastContainer />
         </div>
     );
 }
